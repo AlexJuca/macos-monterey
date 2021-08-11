@@ -1,41 +1,12 @@
 import { Component } from 'react'
 import './dock.scss'
-
-class DockIcon extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            is_executing: false,
-            indicator: "",
-        }
-    }
-
-    onClick = () => {
-        this.setState({
-                is_executing: true,
-                indicator: "dot-indicator"
-        })
-        console.log(this.state.is_executing)
-    }
-
-    render() {
-        const {icon} = this.props
-        return (
-            <li>
-                <span className="icon">
-                    <img onClick={this.onClick} onMouseDown={() => console.log(icon)} src={icon}></img>
-                    <span className={this.state.indicator}></span>
-                </span>
-            </li>
-        )
-    }
-}
+import DockIcon from '../dock-icon/DockIcon'
 
 class DockIconWrapper extends Component {
     render() {
         const {children} = this.props
         return (
-            <ul>
+            <ul className="icon-wrapper">
                 {children}
             </ul>
         )
@@ -56,12 +27,13 @@ class Dock extends Component {
         const applications = [
             [
                 "finder", {
-                    icon: "img/finder.png"
+                    icon: "img/finder.png",
                 }
             ],
             [
                 "launchpad", {
-                    icon: "img/launchpad.png"
+                    icon: "img/launchpad.png",
+                    is_launcher: true,
                 }
             ],
             [
@@ -126,7 +98,7 @@ class Dock extends Component {
 
         const icons = applications.map((row, index) => {
             if (index < this.state.max_items) {
-                return <DockIcon key={index} icon={row[1].icon} />
+                return <DockIcon is_launcher={row[1].is_launcher} name={row[0]} key={index} icon={row[1].icon} />
             }
         })
 

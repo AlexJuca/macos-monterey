@@ -13,27 +13,7 @@
     bottom: -530px;
 }
 
-ul > li {
-    display: inline;
-}
-
-ul > li > span > img {
-    width: 64px;
-}
-
-.dot-indicator {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    border-radius: 512px;
-    background: white;
-    position: relative;
-    left: -4.5%;
-    bottom: -5px;
-}
-
-.icon {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.icon-wrapper {
+    display: flex;
+    list-style: none;
 }
