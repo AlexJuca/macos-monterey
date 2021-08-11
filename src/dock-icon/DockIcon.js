@@ -9,6 +9,8 @@ class DockIcon extends Component {
         this.state = {
             is_executing: false,
             indicator: "dot-indicator-disabled",
+            onMouseDownEffect: "icon-img",
+            is_being_pressed: false,
             is_launcher: props.is_launcher != null || undefined ? true : false,
             name: this.capitilizeFirstLetter(props.name)
         }
@@ -29,7 +31,15 @@ class DockIcon extends Component {
     }
 
     onMouseDown = () => {
-        console.log("Has been clicked!")
+        this.setState({onMouseDownEffect: "onMouseDown icon-img"})
+    }
+
+    onMouseUp = () => {
+        this.setState({onMouseDownEffect: "icon-img"})
+    }
+
+    onMouseLeave = () => {
+        this.setState({onMouseDownEffect: "icon-img"})
     }
 
     render() {
@@ -38,7 +48,7 @@ class DockIcon extends Component {
             <Tooltip content={this.state.name}>
                 <li>
                 <span className="icon">
-                    <img className="icon-img" onClick={this.onClick} onMouseDown={this.onMouseDown} src={icon}></img>
+                    <img className={this.state.onMouseDownEffect} onMouseLeave={this.onMouseLeave} onClick={this.onClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} src={icon}></img>
                     <Indicator indicator={this.state.indicator} ></Indicator>
                 </span>
             </li>

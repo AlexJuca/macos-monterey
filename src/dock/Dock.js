@@ -20,7 +20,7 @@ class Dock extends Component {
             width: "512px",
             height: "72px",
             max_items: 11,
-            visible: true
+            visible: true,
         }
     }
     render() {
@@ -67,24 +67,6 @@ class Dock extends Component {
                 }
             ],
             [
-                "calender", {
-                    icon: "img/calendar.png"
-                }
-            ],
-            [
-                "jetbrains-toolbox", {
-                    icon: "img/jetbrains-toolbox.png"
-                }
-            ],[
-                "calender", {
-                    icon: "img/calendar.png"
-                }
-            ],
-            [
-                "jetbrains-toolbox", {
-                    icon: "img/jetbrains-toolbox.png"
-                }
-            ],[
                 "calender", {
                     icon: "img/calendar.png"
                 }

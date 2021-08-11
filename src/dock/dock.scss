@@ -11,6 +11,9 @@
     text-align: center;
     position: relative;
     bottom: -530px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 50px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 1px 50px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 50px;
 }
 
 .icon-wrapper {
