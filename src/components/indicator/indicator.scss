@@ -1,0 +1,22 @@
+.dot-indicator-disabled {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 512px;
+    background: white;
+    position: relative;
+    left: -47%;
+    bottom: -5px;
+    opacity: 0;
+}
+
+.dot-indicator {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 512px;
+    background: white;
+    position: relative;
+    left: -47%;
+    bottom: -5px;
+}
