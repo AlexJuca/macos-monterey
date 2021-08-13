@@ -5,6 +5,7 @@ import StatusBar from './components/statusbar/StatusBar'
 import ProcessManager from './apps/manager/ProcessManager'
 
 import Process from './lib/darwin/Process'
+import HelloWorld from './apps/hello-world/HelloWorld';
 
 class App extends Component {
   main = new Process()
@@ -30,7 +31,7 @@ class App extends Component {
       <div>
           <StatusBar />
           <ProcessManager processes={this.state.processes} />
-          <ProcessManager processes={this.state.processes} />
+          <HelloWorld />
           <Dock />
       </div>
     );
