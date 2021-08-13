@@ -10,8 +10,26 @@ class Window extends Component {
             title: props.title == null || undefined ? "App" : props.title,
             maximizable: true,
             children: props.children,
-            z_index: "z-index"
+            z_index: "z-index",
+            is_window_fixed_size: false,
+            is_dark_theme: false,
         }
+    }
+
+    useDarkTheme(value) {
+        this.setState({
+            is_dark_theme: value 
+        })
+    }
+
+    setWindowFixedSize(value) {
+        this.setState({
+            is_window_fixed_size: value
+        })
+    }
+
+    getWindowFixedSizeProp() {
+        return this.state.is_window_fixed_size == true ? "wc-button-disabled" : "" 
     }
     
     handleDrag = (e, ui) => {
@@ -81,12 +99,12 @@ class Window extends Component {
         const {deltaPosition, controlledPosition} = this.state;
         return (
             <Draggable {...dragHandlers}>
-                <div className={"darwin-window-light-theme " + this.state.z_index}>
+                <div className={this.state.is_dark_theme ? "darwin-window-dark-theme" : "darwin-window-light-theme" + " " + this.state.z_index}>
                   <div className="window-control-wrapper">
                       <div className="window-controls">
                           <span className="wc-icon close-button"></span>
                           <span className="wc-icon minimize-button"></span>
-                          <span className="wc-icon maximize-button"></span>
+                          <span className={ this.getWindowFixedSizeProp() + " wc-icon maximize-button"}></span>
                       </div>
                   </div>
                   <div className="window-content">
