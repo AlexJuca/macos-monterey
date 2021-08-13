@@ -10,6 +10,10 @@ class ProcessManager extends Window {
         }
     }
 
+    componentDidMount() {
+        this.setWindowFixedSize(true)
+    }
+
     render() {
         return this.build(<Table processes={this.state.processes}/>)
     }
