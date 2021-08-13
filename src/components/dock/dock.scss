@@ -1,16 +1,17 @@
 .dock {
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-    width: 806px;
+    width: 906px;
     height: 72px;
     border-radius: 20px;
-    margin: 20%;
+    margin: 18%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    position: relative;
+    position: absolute;
     z-index: 0;
-    bottom: -530px;
+    left: 27%;
+    bottom: -330px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 60px;
     -moz-box-shadow: rgba(0,0,0,0.1) 0 1px 60px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 60px;
