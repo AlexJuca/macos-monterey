@@ -1,6 +1,4 @@
 .darwin-window-light-theme {
-    backdrop-filter: blur(40px) saturate(160%) contrast(45%) brightness(140%);
-    -webkit-backdrop-filter: blur(40px) saturate(160%) contrast(45%) brightness(140%);
     background: #F2F3F5;
     border-radius: 10px;
     border-style: solid;
@@ -18,7 +16,7 @@
     -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0px 10px;
     -moz-box-shadow: rgba(0,0,0,0.3) 0 0px 10px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 0px 10px;
-    transition: box-shadow 0.5s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     overflow: hidden;
 }
 
@@ -72,4 +70,8 @@
 
 .maximize-button {
     background: #5FCF65;
+}
+
+.wc-button-disabled {
+    background: #D8D9DB;
 }
