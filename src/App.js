@@ -30,6 +30,7 @@ class App extends Component {
       <div>
           <StatusBar />
           <ProcessManager processes={this.state.processes} />
+          <ProcessManager processes={this.state.processes} />
           <Dock />
       </div>
     );
