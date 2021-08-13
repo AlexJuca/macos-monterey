@@ -19,7 +19,7 @@ class Dock extends Component {
         this.state = {
             width: "512px",
             height: "72px",
-            max_items: 11,
+            max_items: 13,
             visible: true,
         }
     }
@@ -74,6 +74,16 @@ class Dock extends Component {
             [
                 "jetbrains-toolbox", {
                     icon: "img/jetbrains-toolbox.png"
+                }
+            ],
+            [
+                "Maps", {
+                    icon: "img/maps.png"
+                }
+            ],
+            [
+                "sketch", {
+                    icon: "img/sketch.png"
                 }
             ]
         ]
