@@ -29,7 +29,7 @@ class Window extends Component {
     }
 
     getWindowFixedSizeProp() {
-        return this.state.is_window_fixed_size == true ? "wc-button-disabled" : "" 
+        return this.state.is_window_fixed_size === true ? "wc-button-disabled" : "" 
     }
     
     handleDrag = (e, ui) => {
@@ -43,29 +43,19 @@ class Window extends Component {
     };
     
     onStart = () => {
-        this.setState({activeDrags: ++this.state.activeDrags, z_index: "z-index-focused"});
-    };
+        this.setState({z_index: "z-index-focused"})
+    }
     
-    onStop = () => {
-        this.setState({activeDrags: --this.state.activeDrags});
-    };
+    onStop = () => { }
 
     onDrop = (e) => {
-        this.setState({activeDrags: --this.state.activeDrags, z_index: "z-index"});
-        if (e.target.classList.contains("drop-target")) {
-          alert("Dropped!");
-          e.target.classList.remove('hovered');
-        }
+        this.setState({z_index: "z-index"})
     };
 
-    onDropAreaMouseEnter = (e) => {
-        if (this.state.activeDrags) {
-          e.target.classList.add('hovered');
-        }
-    }
+    onDropAreaMouseEnter = (e) => { }
 
     onDropAreaMouseLeave = (e) => {
-        e.target.classList.remove('hovered');
+        e.target.classList.remove('hovered')
     }
     
       // For controlled component
@@ -99,7 +89,7 @@ class Window extends Component {
         const {deltaPosition, controlledPosition} = this.state;
         return (
             <Draggable {...dragHandlers}>
-                <div className={this.state.is_dark_theme ? "darwin-window-dark-theme" : "darwin-window-light-theme" + " " + this.state.z_index}>
+                <div className={this.state.is_dark_theme ? "darwin-window-dark-theme " : "darwin-window-light-theme " + this.state.z_index}>
                   <div className="window-control-wrapper">
                       <div className="window-controls">
                           <span className="wc-icon close-button"></span>
