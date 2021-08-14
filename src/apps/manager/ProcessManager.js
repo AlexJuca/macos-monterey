@@ -7,6 +7,7 @@ class ProcessManager extends Window {
         super(props)
         this.state = {
             processes: props.processes,
+            should_render: true
         }
     }
 
