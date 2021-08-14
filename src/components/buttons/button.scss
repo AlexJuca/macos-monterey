@@ -1,0 +1,25 @@
+.darwin-button-large-primary {
+    height: 32px;
+    max-width: 110px; 
+    background: #007AFF;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    padding-bottom: 32px;
+    box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
+    -webkit-box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
+    -moz-box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
+}
+
+.darwin-button-large-primary:focus {
+    background: #009AFF;
+}
+
+.darwin-button-large-primary:hover {
+    cursor: pointer;
+    background: #599AFF;
+}
+
+.darwin-button-large-primary:active {
+    cursor: pointer;
+}
