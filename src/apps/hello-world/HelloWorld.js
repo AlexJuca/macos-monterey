@@ -23,7 +23,14 @@ class HelloWorld extends Window {
     render() {
         return this.build(
             <div>
-                <p>This is a stupid simple application that plays a specific video, Enjoy the song!</p>
+                <p>Hello World - This is an application running on 
+                    a clone of macOS Monterey on the web. It was built using 
+                    HTML, CSS, Javascript and React JS. The plan is to make
+                    this behave as close to the real macOS but build it with
+                    web technologies. ✌️
+                </p>
+
+                <p>This was created with ❤️ by <a target="_blank" href="https://twitter.com/0xFFA4">Alexandre Juca</a></p>
             
                 <Button onClick={this.onClick} text={"Click me!!"} />
             </div>
