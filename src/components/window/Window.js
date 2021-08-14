@@ -13,7 +13,16 @@ class Window extends Component {
             z_index: "z-index",
             is_window_fixed_size: false,
             is_dark_theme: false,
+            should_render: true,
         }
+    }
+
+    componentDidMount() {
+        console.log(this.state.node_id)
+    }
+
+    terminate = () => {
+        this.setState({should_render: false})
     }
 
     useDarkTheme(value) {
@@ -88,20 +97,20 @@ class Window extends Component {
         const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
         const {deltaPosition, controlledPosition} = this.state;
         return (
-            <Draggable {...dragHandlers}>
-                <div className={this.state.is_dark_theme ? "darwin-window-dark-theme " : "darwin-window-light-theme " + this.state.z_index}>
-                  <div className="window-control-wrapper">
-                      <div className="window-controls">
-                          <span className="wc-icon close-button"></span>
-                          <span className="wc-icon minimize-button"></span>
-                          <span className={ this.getWindowFixedSizeProp() + " wc-icon maximize-button"}></span>
-                      </div>
-                  </div>
-                  <div className="window-content">
-                      {views}
+            this.state.should_render === true ? <Draggable {...dragHandlers}>
+            <div className={this.state.is_dark_theme ? "darwin-window-dark-theme " : "darwin-window-light-theme "}>
+              <div className="window-control-wrapper">
+                  <div className="window-controls">
+                      <span onClick={this.terminate} className="wc-icon close-button"></span>
+                      <span className="wc-icon minimize-button"></span>
+                      <span className={ this.getWindowFixedSizeProp() + " wc-icon maximize-button"}></span>
                   </div>
               </div>
-            </Draggable>    
+              <div className="window-content">
+                  {views}
+              </div>
+          </div>
+        </Draggable> : "" 
         );
     }
 }
