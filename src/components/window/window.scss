@@ -79,3 +79,10 @@
 .wc-button-disabled {
     background: #D8D9DB;
 }
+
+@media screen and (min-height: 600px) and (max-height: 900px) {
+    .darwin-window-light-theme {
+        width: 680px;
+        height: 420px;
+    }
+}
