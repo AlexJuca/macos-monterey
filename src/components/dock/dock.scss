@@ -1,7 +1,7 @@
 .dock {
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-    width: 890px;
+    width: 980px;
     height: 72px;
     border-radius: 20px;
     margin: 18%;
@@ -18,6 +18,13 @@
     box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
     -webkit-box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
     -moz-box-shadow: rgb(255 255 255 / 30%) 0 1px 1px inset;
+}
+
+.dock-seperator {
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    width: 1px;
+    height: 52px;
 }
 
 .icon-wrapper {
