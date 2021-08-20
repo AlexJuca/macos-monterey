@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './dock.scss'
 import DockIcon from '../dock-icon/DockIcon'
+import { connect } from 'react-redux'
 
 class DockIconWrapper extends Component {
     render() {
@@ -14,103 +15,24 @@ class DockIconWrapper extends Component {
 }
 
 class Dock extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            width: "512px",
-            height: "72px",
-            max_items: 13,
-            visible: true,
-            undocked_applications_in_execution: [
-                [
-                    "trex", {
-                        icon: "/img/trex.png"
-                    }
-                ]
-            ],
-            docked_applications: [
-                [
-                    "finder", {
-                        icon: "img/finder.png",
-                    }
-                ],
-                [
-                    "launchpad", {
-                        icon: "img/launchpad.png",
-                        is_launcher: true,
-                    }
-                ],
-                [
-                    "slack", {
-                        icon: "img/slack.png"
-                    }
-                ],
-                [
-                    "chrome", {
-                        icon: "img/chrome.png"
-                    }
-                ],
-                [
-                    "imessage", {
-                        icon: "img/imessage.png"
-                    }
-                ],
-                [
-                    "notion", {
-                        icon: "img/notion.png"
-                    }
-                ],
-                [
-                    "safari", {
-                        icon: "img/safari.png"
-                    },
-                ],
-                [
-                    "terminal", {
-                        icon: "img/terminal.png"
-                    }
-                ],
-                [
-                    "calender", {
-                        icon: "img/calendar.png"
-                    }
-                ],
-                [
-                    "jetbrains-toolbox", {
-                        icon: "img/jetbrains-toolbox.png"
-                    }
-                ],
-                [
-                    "Maps", {
-                        icon: "img/maps.png"
-                    }
-                ],
-                [
-                    "sketch", {
-                        icon: "img/sketch.png"
-                    }
-                ]
-            ],
-
-        }
-    }
 
     render() {
+        const {docked_applications, undocked_applications_in_execution, max_items} = this.props
 
-        const currently_docked_apps = this.state.docked_applications.map((row, index) => {
-            if (index < this.state.max_items) {
+        const currently_docked_apps = docked_applications.map((row, index) => {
+            if (index < max_items) {
                 return <DockIcon is_launcher={row[1].is_launcher} name={row[0]} key={index} icon={row[1].icon} />
             }
         })
 
-        const currently_running_apps = this.state.undocked_applications_in_execution.map((row, index) => {
-            if (index < this.state.max_items && this.state.undocked_applications_in_execution.length != 0 ) {
+        const currently_running_apps = undocked_applications_in_execution.map((row, index) => {
+            if (index < max_items && undocked_applications_in_execution.length != 0 ) {
                 return <DockIcon is_launcher={row[1].is_launcher} name={row[0]} key={index} icon={row[1].icon} />
             }
         })
 
         const conditionally_add_dock_seperator = () => {
-            if (this.state.undocked_applications_in_execution.length == 0) {
+            if (undocked_applications_in_execution.length == 0) {
                 return null
             } else {
                 return <div className="dock-seperator"></div>
@@ -127,4 +49,26 @@ class Dock extends Component {
     }
 }
 
-export default Dock
+const mapStateToProps = (state) => {
+    return {
+        docked_applications: state.dockReducer.docked_applications,
+        undocked_applications_in_execution: state.dockReducer.undocked_applications_in_execution,
+        width: state.dockReducer.width,
+        height: state.dockReducer.height,
+        max_items: state.dockReducer.max_items,
+        visible: state.dockReducer.visible
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        run: (app) => {
+            dispatch({
+                type: "RUN_APP",
+                payload: app
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dock)
