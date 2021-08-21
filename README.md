@@ -1,4 +1,5 @@
 # macOS Monterey
+[![Node.js CI](https://github.com/AlexJuca/macos-monterey/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/AlexJuca/macos-monterey/actions/workflows/node.js.yml)
 
 This project is a clone of macOS Monterey that runs in your browser.
 It was built using HTML, CSS, Javascript and React.
