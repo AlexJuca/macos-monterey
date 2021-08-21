@@ -1,9 +1,10 @@
-# macOS Monterey 
+# macOS Monterey
 
-This project is a clone of macOS Monterey that runs in your browser. 
+This project is a clone of macOS Monterey that runs in your browser.
 It was built using HTML, CSS, Javascript and React.
 
 # Why was this project created?
+
 Simple really. I am a backend engineer but I recently had to learn React. So, after following
 this tutorial by [Tania Rascia](https://www.taniarascia.com/getting-started-with-react/) and reading the official React documentation I challenged myself to build a clone of macOS Monterey that runs in the browser.
 
@@ -12,8 +13,9 @@ this tutorial by [Tania Rascia](https://www.taniarascia.com/getting-started-with
 To view what we have so far check out this [link](http://macos-monteray.herokuapp.com)
 
 # Roadmap
+
 Currently, this is being tracked in a private Notion board but the general idea is to make
-this look and work as much as possible to the native version of macOS. 
+this look and work as much as possible to the native version of macOS.
 
 ## Development
 
@@ -25,9 +27,9 @@ cd macos-monterey/
 
 npm install
 
-npm start 
+npm start
 
-# To run on a specific port 
+# To run on a specific port
 HOST=YOUR_IP npm start
 ```
 
@@ -44,6 +46,3 @@ Copyright (C) Alexandre Juca <corextechnologies@gmail.com>
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-
-

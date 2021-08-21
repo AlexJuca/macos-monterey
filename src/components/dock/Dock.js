@@ -1,7 +1,8 @@
-import { Component } from "react"
+import React, { Component } from "react"
 import "./dock.scss"
 import DockIcon from "../dock-icon/DockIcon"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
 class DockIconWrapper extends Component {
   render() {
@@ -84,6 +85,16 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
   }
+}
+
+DockIconWrapper.propTypes = {
+  children: PropTypes.array,
+}
+
+Dock.propTypes = {
+  docked_applications: PropTypes.array,
+  undocked_applications_in_execution: PropTypes.array,
+  max_items: PropTypes.number,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dock)
