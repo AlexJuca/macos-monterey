@@ -20,7 +20,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint *.js *.jsx",
     "lint:fix": "eslint --fix .",
     "start": "react-scripts start",
     "build": "react-scripts build",
