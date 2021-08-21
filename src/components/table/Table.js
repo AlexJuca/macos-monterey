@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 const TableHeader = () => {
   return (
@@ -39,6 +40,14 @@ class Table extends Component {
       </table>
     )
   }
+}
+
+Table.propTypes = {
+  processes: PropTypes.array,
+}
+
+TableBody.propTypes = {
+  processes: PropTypes.array,
 }
 
 export default Table

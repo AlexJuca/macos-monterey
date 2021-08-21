@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import Button from "../../components/buttons/Button"
 import Window from "../../components/window/Window"
 
@@ -32,7 +32,7 @@ class HelloWorld extends Window {
 
         <p>
           This was created with ❤️ by{" "}
-          <a target="_blank" href="https://twitter.com/0xFFA4">
+          <a target="_blank" rel="noreferrer" href="https://twitter.com/0xFFA4">
             Alexandre Juca
           </a>
         </p>

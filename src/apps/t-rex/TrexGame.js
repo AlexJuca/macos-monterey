@@ -1,15 +1,10 @@
-import React, { Component } from "react"
-import Button from "../../components/buttons/Button"
+import React from "react"
 import Window from "../../components/window/Window"
 import "./trex.scss"
 
 class TrexGame extends Window {
   constructor(props) {
     super(props)
-    this.state = {
-      processes: props.processes,
-      should_render: true,
-    }
   }
 
   componentDidMount() {
@@ -31,13 +26,13 @@ class TrexGame extends Window {
   render() {
     return this.build(
       <div>
-        <div id="messageBox" class="sendmessage">
+        <div id="messageBox" className="sendmessage">
           <h1>Press Space to start</h1>
-          <div class="niokbutton" onClick={this.onClick}></div>
+          <div className="niokbutton" onClick={this.onClick}></div>
         </div>
-        <div id="main-frame-error" class="interstitial-wrapper">
+        <div id="main-frame-error" className="interstitial-wrapper">
           <div id="main-content">
-            <div class="icon icon-offline" alt=""></div>
+            <div className="icon icon-offline" alt=""></div>
           </div>
           <div id="offline-resources">
             <img

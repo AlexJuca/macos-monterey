@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import Draggable from "react-draggable"
 import "./window.scss"
 
@@ -41,7 +42,7 @@ class Window extends Component {
     return this.state.is_window_fixed_size === true ? "wc-button-disabled" : ""
   }
 
-  handleDrag = (e, ui) => {
+  handleDrag = (ui) => {
     const { x, y } = this.state.deltaPosition
     this.setState({
       deltaPosition: {
@@ -57,11 +58,11 @@ class Window extends Component {
 
   onStop = () => {}
 
-  onDrop = (e) => {
+  onDrop = () => {
     this.setState({ z_index: "z-index" })
   }
 
-  onDropAreaMouseEnter = (e) => {}
+  onDropAreaMouseEnter = () => {}
 
   onDropAreaMouseLeave = (e) => {
     e.target.classList.remove("hovered")
@@ -95,7 +96,6 @@ class Window extends Component {
 
   build(views) {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
-    const { deltaPosition, controlledPosition } = this.state
     return this.state.should_render === true ? (
       <Draggable {...dragHandlers}>
         <div
@@ -123,6 +123,16 @@ class Window extends Component {
       ""
     )
   }
+}
+
+Window.propTypes = {
+  title: PropTypes.string,
+  maximizable: PropTypes.bool,
+  children: PropTypes.Component,
+  z_index: PropTypes.string,
+  is_window_fixed_size: PropTypes.bool,
+  is_dark_theme: PropTypes.bool,
+  should_render: PropTypes.bool,
 }
 
 export default Window

@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import Tooltip from "@atlaskit/tooltip"
 import Indicator from "../indicator/Indicator"
 import "./dock-icon.scss"
@@ -45,7 +46,7 @@ class DockIcon extends Component {
   render() {
     const { icon, name } = this.props
     return (
-      <Tooltip content={this.state.name}>
+      <Tooltip content={name}>
         <li>
           <span className="icon">
             <img
@@ -62,6 +63,12 @@ class DockIcon extends Component {
       </Tooltip>
     )
   }
+}
+
+DockIcon.propTypes = {
+  is_launcher: PropTypes.bool,
+  name: PropTypes.string,
+  icon: PropTypes.string,
 }
 
 export default DockIcon
