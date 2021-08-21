@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
-import './App.scss';
-import Dock from './components/dock/Dock'
-import StatusBar from './components/statusbar/StatusBar'
-import ProcessManager from './apps/manager/ProcessManager'
-import TrexGame from './apps/t-rex/TrexGame'
-import Process from './lib/darwin/Process'
-import HelloWorld from './apps/hello-world/HelloWorld';
+import React, { Component } from "react"
+import "./App.scss"
+import Dock from "./components/dock/Dock"
+import StatusBar from "./components/statusbar/StatusBar"
+import ProcessManager from "./apps/manager/ProcessManager"
+import TrexGame from "./apps/t-rex/TrexGame"
+import Process from "./lib/darwin/Process"
+import HelloWorld from "./apps/hello-world/HelloWorld"
 
 class App extends Component {
   main = new Process()
@@ -17,28 +17,29 @@ class App extends Component {
     this.state = {
       processes: [
         {
-          name: 'dock',
-          pId: '1',
+          name: "dock",
+          pId: "1",
           user: "System",
           executionTime: 90,
         },
         {
-          name: 'T-Rex',
-          pId: '2',
+          name: "T-Rex",
+          pId: "2",
           user: "AlexJuca",
           executionTime: 90,
         },
         {
-          name: 'Hello World',
-          pId: '3',
+          name: "Hello World",
+          pId: "3",
           user: "AlexJuca",
           executionTime: 90,
-        },{
-          name: 'Process Manager',
-          pId: '4',
+        },
+        {
+          name: "Process Manager",
+          pId: "4",
           user: "AlexJuca",
           executionTime: 90,
-        }
+        },
       ],
     }
   }
@@ -46,14 +47,14 @@ class App extends Component {
   render() {
     return (
       <div>
-          <StatusBar />
-          <TrexGame />
-          <ProcessManager processes={this.state.processes} />
-          <HelloWorld />
-          <Dock />
+        <StatusBar />
+        <TrexGame />
+        <ProcessManager processes={this.state.processes} />
+        <HelloWorld />
+        <Dock />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

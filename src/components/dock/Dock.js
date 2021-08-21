@@ -1,74 +1,89 @@
-import { Component } from 'react'
-import './dock.scss'
-import DockIcon from '../dock-icon/DockIcon'
-import { connect } from 'react-redux'
+import { Component } from "react"
+import "./dock.scss"
+import DockIcon from "../dock-icon/DockIcon"
+import { connect } from "react-redux"
 
 class DockIconWrapper extends Component {
-    render() {
-        const {children} = this.props
-        return (
-            <ul className="icon-wrapper">
-                {children}
-            </ul>
-        )
-    }
+  render() {
+    const { children } = this.props
+    return <ul className="icon-wrapper">{children}</ul>
+  }
 }
 
 class Dock extends Component {
+  render() {
+    const { docked_applications, undocked_applications_in_execution, max_items } =
+      this.props
 
-    render() {
-        const {docked_applications, undocked_applications_in_execution, max_items} = this.props
+    const currently_docked_apps = docked_applications.map((row, index) => {
+      if (index < max_items) {
+        return (
+          <DockIcon
+            is_launcher={row[1].is_launcher}
+            name={row[0]}
+            key={index}
+            icon={row[1].icon}
+          />
+        )
+      }
+    })
 
-        const currently_docked_apps = docked_applications.map((row, index) => {
-            if (index < max_items) {
-                return <DockIcon is_launcher={row[1].is_launcher} name={row[0]} key={index} icon={row[1].icon} />
-            }
-        })
-
-        const currently_running_apps = undocked_applications_in_execution.map((row, index) => {
-            if (index < max_items && undocked_applications_in_execution.length != 0 ) {
-                return <DockIcon is_launcher={row[1].is_launcher} name={row[0]} key={index} icon={row[1].icon} />
-            }
-        })
-
-        const conditionally_add_dock_seperator = () => {
-            if (undocked_applications_in_execution.length == 0) {
-                return null
-            } else {
-                return <div className="dock-seperator"></div>
-            }
+    const currently_running_apps = undocked_applications_in_execution.map(
+      (row, index) => {
+        if (index < max_items && undocked_applications_in_execution.length != 0) {
+          return (
+            <DockIcon
+              is_launcher={row[1].is_launcher}
+              name={row[0]}
+              key={index}
+              icon={row[1].icon}
+            />
+          )
         }
+      }
+    )
 
-        return (<div className="dock">
-            <DockIconWrapper>
-                {currently_docked_apps}
-                {conditionally_add_dock_seperator()}
-                {currently_running_apps}
-            </DockIconWrapper>
-        </div>)
+    const conditionally_add_dock_seperator = () => {
+      if (undocked_applications_in_execution.length == 0) {
+        return null
+      } else {
+        return <div className="dock-seperator"></div>
+      }
     }
+
+    return (
+      <div className="dock">
+        <DockIconWrapper>
+          {currently_docked_apps}
+          {conditionally_add_dock_seperator()}
+          {currently_running_apps}
+        </DockIconWrapper>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        docked_applications: state.dockReducer.docked_applications,
-        undocked_applications_in_execution: state.dockReducer.undocked_applications_in_execution,
-        width: state.dockReducer.width,
-        height: state.dockReducer.height,
-        max_items: state.dockReducer.max_items,
-        visible: state.dockReducer.visible
-    }
+  return {
+    docked_applications: state.dockReducer.docked_applications,
+    undocked_applications_in_execution:
+      state.dockReducer.undocked_applications_in_execution,
+    width: state.dockReducer.width,
+    height: state.dockReducer.height,
+    max_items: state.dockReducer.max_items,
+    visible: state.dockReducer.visible,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        run: (app) => {
-            dispatch({
-                type: "RUN_APP",
-                payload: app
-            })
-        }
-    }
+  return {
+    run: (app) => {
+      dispatch({
+        type: "RUN_APP",
+        payload: app,
+      })
+    },
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dock)

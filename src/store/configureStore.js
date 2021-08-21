@@ -1,13 +1,10 @@
-import rootReducer from '../reducers'
-import { createStore } from 'redux'
+import rootReducer from "../reducers"
+import { createStore } from "redux"
 
-const configureStore = preloadedState => {
-    const store = createStore(
-        rootReducer,
-        preloadedState, 
-    )
+const configureStore = (preloadedState) => {
+  const store = createStore(rootReducer, preloadedState)
 
-    return store
+  return store
 }
 
 export default configureStore
