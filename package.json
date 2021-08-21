@@ -20,6 +20,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "lint": "eslint \"**/*.js\"",
     "lint:fix": "eslint --fix .",
     "start": "react-scripts start",
@@ -47,6 +48,8 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "prettier": "^2.3.2"
   }
 }
