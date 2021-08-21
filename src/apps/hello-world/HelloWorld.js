@@ -17,7 +17,7 @@ class HelloWorld extends Window {
   }
 
   onClick = () => {
-    alert("Button seems to be working!")
+    // TODO: ADD OnClick Action
   }
 
   render() {
