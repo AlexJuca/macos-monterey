@@ -37,7 +37,7 @@
   },
   "scripts": {
     "format": "prettier --write \"**/*.+(js|jsx|json|css|scss|md)\"",
-    "lint": "eslint \"**/*.js\" \"public/*.js\"",
+    "lint": "eslint \"**/*.js\"",
     "lint:fix": "eslint --fix .",
     "start": "react-scripts start",
     "build": "react-scripts build",
