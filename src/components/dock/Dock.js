@@ -3,6 +3,7 @@ import "./dock.scss"
 import DockIcon from "../dock-icon/DockIcon"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import { isChrome } from "react-device-detect"
 
 class DockIconWrapper extends Component {
   render() {
@@ -12,6 +13,18 @@ class DockIconWrapper extends Component {
 }
 
 class Dock extends Component {
+  componentDidMount() {
+    this.updateDockPosition()
+  }
+
+  // TODO: Position correctly on Firefox and Edge Browsers
+  updateDockPosition = () => {
+    const position = isChrome
+      ? -(window.innerHeight / 4) - 50
+      : -(window.innerHeight / 4) - 110
+    return position
+  }
+
   render() {
     const { docked_applications, undocked_applications_in_execution, max_items } =
       this.props
@@ -53,7 +66,7 @@ class Dock extends Component {
     }
 
     return (
-      <div className="dock">
+      <div style={{ bottom: this.updateDockPosition() }} className="dock">
         <DockIconWrapper>
           {currently_docked_apps}
           {conditionally_add_dock_seperator()}
@@ -66,6 +79,7 @@ class Dock extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    dock_position: state.dock_position,
     docked_applications: state.dockReducer.docked_applications,
     undocked_applications_in_execution:
       state.dockReducer.undocked_applications_in_execution,
@@ -92,6 +106,7 @@ DockIconWrapper.propTypes = {
 }
 
 Dock.propTypes = {
+  dock_position: PropTypes.number,
   docked_applications: PropTypes.array,
   undocked_applications_in_execution: PropTypes.array,
   max_items: PropTypes.number,
