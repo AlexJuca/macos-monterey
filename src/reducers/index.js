@@ -1,6 +1,7 @@
 import { combineReducers } from "redux"
 
 const dockDefaultState = {
+  dock_position: -390,
   width: "512px",
   height: "72px",
   max_items: 13,
