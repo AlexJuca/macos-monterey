@@ -14,11 +14,11 @@ class DockIconWrapper extends Component {
 
 class Dock extends Component {
   componentDidMount() {
-    this.updateDockPosition()
+    this.updateDockYPosition()
   }
 
   // TODO: Position correctly on Firefox and Edge Browsers
-  updateDockPosition = () => {
+  updateDockYPosition = () => {
     const position = isChrome
       ? -(window.innerHeight / 4) - 50
       : -(window.innerHeight / 4) - 110
@@ -66,7 +66,7 @@ class Dock extends Component {
     }
 
     return (
-      <div style={{ bottom: this.updateDockPosition() }} className="dock">
+      <div style={{ bottom: this.updateDockYPosition() }} className="dock">
         <DockIconWrapper>
           {currently_docked_apps}
           {conditionally_add_dock_seperator()}
