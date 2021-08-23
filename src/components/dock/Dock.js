@@ -3,6 +3,7 @@ import "./dock.scss"
 import DockIcon from "../dock-icon/DockIcon"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import { isChrome, isFirefox, isSafari } from "react-device-detect"
 
 class DockIconWrapper extends Component {
   render() {
@@ -12,6 +13,49 @@ class DockIconWrapper extends Component {
 }
 
 class Dock extends Component {
+  componentDidMount() {
+    this.updateDockWidth()
+    this.updateDockYPosition()
+    this.updateDockXPosition()
+  }
+
+  componentDidUpdate() {
+    this.updateDockWidth()
+    this.updateDockYPosition()
+    this.updateDockXPosition()
+  }
+
+  totalNumberOfItemsInDock = () => {
+    const { docked_applications, undocked_applications_in_execution } = this.props
+    return docked_applications.length + undocked_applications_in_execution.length
+  }
+
+  updateDockWidth = () => {
+    const num_of_items_in_dock = this.totalNumberOfItemsInDock()
+    const dock_icon_width = 75.39
+    return dock_icon_width * num_of_items_in_dock
+  }
+
+  updateDockXPosition = () => {
+    const dock_width = this.updateDockWidth()
+    return window.innerWidth / 2 - dock_width / 2
+  }
+
+  updateDockYPosition = () => {
+    if (isChrome) {
+      return -(window.innerHeight / 4) - 50
+    }
+
+    if (isFirefox) {
+      return -(window.innerHeight / 4) - 50
+    }
+
+    if (isSafari) {
+      return -(window.innerHeight / 4) - 110
+    }
+    return -(window.innerHeight / 4) - 110
+  }
+
   render() {
     const { docked_applications, undocked_applications_in_execution, max_items } =
       this.props
@@ -53,7 +97,14 @@ class Dock extends Component {
     }
 
     return (
-      <div className="dock">
+      <div
+        style={{
+          bottom: this.updateDockYPosition(),
+          width: this.updateDockWidth(),
+          left: this.updateDockXPosition(),
+        }}
+        className="dock"
+      >
         <DockIconWrapper>
           {currently_docked_apps}
           {conditionally_add_dock_seperator()}
@@ -66,6 +117,7 @@ class Dock extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    dock_position: state.dock_position,
     docked_applications: state.dockReducer.docked_applications,
     undocked_applications_in_execution:
       state.dockReducer.undocked_applications_in_execution,
@@ -92,6 +144,7 @@ DockIconWrapper.propTypes = {
 }
 
 Dock.propTypes = {
+  dock_position: PropTypes.number,
   docked_applications: PropTypes.array,
   undocked_applications_in_execution: PropTypes.array,
   max_items: PropTypes.number,
