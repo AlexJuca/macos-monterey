@@ -3,7 +3,7 @@ import "./dock.scss"
 import DockIcon from "../dock-icon/DockIcon"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { isChrome } from "react-device-detect"
+import { isChrome, isFirefox, isSafari } from "react-device-detect"
 
 class DockIconWrapper extends Component {
   render() {
@@ -14,15 +14,46 @@ class DockIconWrapper extends Component {
 
 class Dock extends Component {
   componentDidMount() {
+    this.updateDockWidth()
     this.updateDockYPosition()
+    this.updateDockXPosition()
   }
 
-  // TODO: Position correctly on Firefox and Edge Browsers
+  componentDidUpdate() {
+    this.updateDockWidth()
+    this.updateDockYPosition()
+    this.updateDockXPosition()
+  }
+
+  totalNumberOfItemsInDock = () => {
+    const { docked_applications, undocked_applications_in_execution } = this.props
+    return docked_applications.length + undocked_applications_in_execution.length
+  }
+
+  updateDockWidth = () => {
+    const num_of_items_in_dock = this.totalNumberOfItemsInDock()
+    const dock_icon_width = 75.39
+    return dock_icon_width * num_of_items_in_dock
+  }
+
+  updateDockXPosition = () => {
+    const dock_width = this.updateDockWidth()
+    return window.innerWidth / 2 - dock_width / 2
+  }
+
   updateDockYPosition = () => {
-    const position = isChrome
-      ? -(window.innerHeight / 4) - 50
-      : -(window.innerHeight / 4) - 110
-    return position
+    if (isChrome) {
+      return -(window.innerHeight / 4) - 50
+    }
+
+    if (isFirefox) {
+      return -(window.innerHeight / 4) - 50
+    }
+
+    if (isSafari) {
+      return -(window.innerHeight / 4) - 110
+    }
+    return -(window.innerHeight / 4) - 110
   }
 
   render() {
@@ -66,7 +97,14 @@ class Dock extends Component {
     }
 
     return (
-      <div style={{ bottom: this.updateDockYPosition() }} className="dock">
+      <div
+        style={{
+          bottom: this.updateDockYPosition(),
+          width: this.updateDockWidth(),
+          left: this.updateDockXPosition(),
+        }}
+        className="dock"
+      >
         <DockIconWrapper>
           {currently_docked_apps}
           {conditionally_add_dock_seperator()}
