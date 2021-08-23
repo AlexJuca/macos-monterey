@@ -3,14 +3,7 @@ import { combineReducers } from "redux"
 const dockDefaultState = {
   max_items: 13,
   visible: true,
-  undocked_applications_in_execution: [
-    [
-      "trex",
-      {
-        icon: "/img/trex.png",
-      },
-    ],
-  ],
+  undocked_applications_in_execution: [],
   docked_applications: [
     [
       "finder",
