@@ -1,7 +1,41 @@
+@font-face {
+  font-family: "SF-Display-Black";
+  src: url("./fonts/SF-UI-Display-Black.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Bold";
+  src: url("./fonts/SF-UI-Display-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Heavy";
+  src: url("./fonts/SF-UI-Display-Heavy.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Light";
+  src: url("./fonts/SF-UI-Display-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Medium";
+  src: url("./fonts/SF-UI-Display-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Regular";
+  src: url("./fonts/SF-UI-Display-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF-Display-Semibold";
+  src: url("./fonts/SF-UI-Display-Semibold.otf") format("truetype");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "SF-Display-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgba(0, 0, 0, 0.1);
