@@ -6,6 +6,7 @@ import ProcessManager from "./apps/manager/ProcessManager"
 import TrexGame from "./apps/t-rex/TrexGame"
 import Process from "./lib/darwin/Process"
 import HelloWorld from "./apps/hello-world/HelloWorld"
+import "./fonts/fonts.js"
 
 class App extends Component {
   main = new Process()
