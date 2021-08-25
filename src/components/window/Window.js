@@ -15,6 +15,7 @@ class Window extends Component {
       is_window_fixed_size: false,
       is_dark_theme: false,
       should_render: true,
+      custom_window_style: null,
     }
   }
 
@@ -36,6 +37,22 @@ class Window extends Component {
     this.setState({
       is_window_fixed_size: value,
     })
+  }
+
+  setCustomStyle(style) {
+    this.setState({
+      custom_window_style: style,
+    })
+  }
+
+  applyCustomStyleOrDefaultTheme = () => {
+    if (this.state.custom_window_style != null) {
+      return this.state.custom_window_style
+    } else {
+      return this.state.is_dark_theme
+        ? "darwin-window-dark-theme"
+        : "darwin-window-light-theme"
+    }
   }
 
   getWindowFixedSizeProp() {
@@ -98,13 +115,7 @@ class Window extends Component {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
     return this.state.should_render === true ? (
       <Draggable {...dragHandlers}>
-        <div
-          className={
-            this.state.is_dark_theme
-              ? "darwin-window-dark-theme "
-              : "darwin-window-light-theme "
-          }
-        >
+        <div className={this.applyCustomStyleOrDefaultTheme()}>
           <div className="window-control-wrapper">
             <div className="window-controls">
               <span onClick={this.terminate} className="wc-icon close-button"></span>
@@ -128,7 +139,7 @@ class Window extends Component {
 Window.propTypes = {
   title: PropTypes.string,
   maximizable: PropTypes.bool,
-  children: PropTypes.Component,
+  children: PropTypes.func,
   z_index: PropTypes.string,
   is_window_fixed_size: PropTypes.bool,
   is_dark_theme: PropTypes.bool,
