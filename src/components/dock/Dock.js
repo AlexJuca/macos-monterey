@@ -51,7 +51,7 @@ class Dock extends Component {
     }
 
     if (isSafari) {
-      return -(window.innerHeight / 4) - 110
+      return -(window.innerHeight / 4) - 50
     }
     return -(window.innerHeight / 4) - 110
   }
