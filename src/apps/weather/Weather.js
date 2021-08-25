@@ -99,7 +99,7 @@ class WeatherApp extends Window {
           </div>
           <div>
             <form onSubmit={this.handleSubmit}>
-              <label>
+              {/* <label>
                 City:
                 <input
                   className="weather-input"
@@ -107,7 +107,7 @@ class WeatherApp extends Window {
                   value={this.state.city}
                   onChange={this.handleChange}
                 />
-              </label>
+              </label> */}
               <button className="refresh-button">Update</button>
             </form>
           </div>
