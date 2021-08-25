@@ -55,6 +55,12 @@ class Window extends Component {
     }
   }
 
+  getRandomInt = (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
   getWindowFixedSizeProp() {
     return this.state.is_window_fixed_size === true ? "wc-button-disabled" : ""
   }
@@ -114,8 +120,24 @@ class Window extends Component {
   build(views) {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
     return this.state.should_render === true ? (
-      <Draggable {...dragHandlers}>
-        <div className={this.applyCustomStyleOrDefaultTheme()}>
+      <Draggable
+        style={{
+          transform: `translate(${this.getRandomInt(0, 500)}px, ${this.getRandomInt(
+            0,
+            900
+          )}px)`,
+        }}
+        {...dragHandlers}
+      >
+        <div
+          style={{
+            transform: `translate(${this.getRandomInt(
+              0,
+              500
+            )}px, ${this.getRandomInt(0, 900)}px)`,
+          }}
+          className={this.applyCustomStyleOrDefaultTheme()}
+        >
           <div className="window-control-wrapper">
             <div className="window-controls">
               <span onClick={this.terminate} className="wc-icon close-button"></span>
