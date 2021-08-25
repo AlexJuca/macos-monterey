@@ -1,0 +1,154 @@
+.welcome-app-theme {
+  background: rgba(255, 0, 70, 0.1);
+  backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0 / 100);
+  position: absolute;
+  width: 380px;
+  height: 490px;
+  top: 200px;
+  left: 28%;
+  right: 50%;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.weather-app {
+  color: #fff;
+}
+
+.temperature {
+  color: #fff;
+  font-size: 26px;
+  font-family: "SF-Display-Bold";
+}
+
+.time {
+  font-size: 58px;
+  color: #fff;
+  font-family: "SF-Display-Bold";
+  margin-bottom: 0px;
+}
+
+.time-period {
+  font-size: 18px;
+  margin-left: -6px;
+  color: #fff;
+}
+
+.city {
+  font-size: 28px;
+}
+
+.weather-input {
+    color: #fff;
+    text-align: center;
+}
+
+.refresh-button {
+    background: #fff;
+    color: #000;
+    border-style: none;
+}
+
+.refresh-button:hover {
+    background: #000;
+    color: #fff;
+    border-style: none;
+}
+
+.weather-input:focus {
+    border-color: #fff;
+}
+
+.spinning-loader {
+  transform: rotate(360deg);
+  overflow: hidden;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+#loading-spinner {
+  display: inline;
+  position: relative;
+  z-index: 999999;
+}
+
+#loading-spinner .spin-icon {
+  margin: auto;
+  width: 32px;
+  height: 32px;
+
+  border: solid 3px transparent;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-radius: 32px;
+
+  -webkit-animation: loading-spinner 500ms linear infinite;
+  -moz-animation: loading-spinner 500ms linear infinite;
+  -ms-animation: loading-spinner 500ms linear infinite;
+  -o-animation: loading-spinner 500ms linear infinite;
+  animation: loading-spinner 500ms linear infinite;
+}
+
+@-webkit-keyframes loading-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes loading-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes loading-spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes loading-spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
