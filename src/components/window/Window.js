@@ -8,6 +8,7 @@ class Window extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      item: React.createRef(),
       title: props.title == null || undefined ? "App" : props.title,
       maximizable: true,
       children: props.children,
@@ -15,8 +16,22 @@ class Window extends Component {
       is_window_fixed_size: false,
       is_dark_theme: false,
       should_render: true,
+      is_maximized: false,
       custom_window_style: null,
+      width: 768,
+      height: 512,
+      previous_width: 0,
+      previous_height: 0,
     }
+  }
+
+  getCurrentWindowHeightAndWidth = () => {
+    const width = this.item.current.offsetWidth
+    const height = this.item.current.offsetHeight
+    this.setState({
+      previous_width: width,
+      previous_height: height,
+    })
   }
 
   componentDidMount() {
@@ -37,6 +52,35 @@ class Window extends Component {
     this.setState({
       is_window_fixed_size: value,
     })
+  }
+
+  restoreOrMaximize = () => {
+    if (this.state.is_maximized == false) {
+      this.setState(
+        {
+          previous_width: 768,
+          previous_height: 512,
+          width: window.innerWidth / 2 + 300,
+          height: window.innerHeight / 2 + 300,
+          is_maximized: true,
+        },
+        () => console.log(this.state.previous_height)
+      )
+      this.forceUpdate()
+    } else {
+      this.setState({
+        width: this.state.previous_width,
+        height: this.state.previous_height,
+        is_maximized: false,
+      })
+      this.forceUpdate()
+    }
+  }
+
+  maximize = () => {
+    if (this.state.is_window_fixed_size == false) {
+      this.restoreOrMaximize()
+    }
   }
 
   setCustomStyle(style) {
@@ -120,21 +164,16 @@ class Window extends Component {
   build(views) {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop }
     return this.state.should_render === true ? (
-      <Draggable
-        style={{
-          transform: `translate(${this.getRandomInt(0, 500)}px, ${this.getRandomInt(
-            0,
-            900
-          )}px)`,
-        }}
-        {...dragHandlers}
-      >
+      <Draggable {...dragHandlers}>
         <div
+          ref={this.state.item}
           style={{
             transform: `translate(${this.getRandomInt(
               0,
               500
             )}px, ${this.getRandomInt(0, 900)}px)`,
+            width: this.state.width + "px",
+            height: this.state.height + "px",
           }}
           className={this.applyCustomStyleOrDefaultTheme()}
         >
@@ -143,6 +182,7 @@ class Window extends Component {
               <span onClick={this.terminate} className="wc-icon close-button"></span>
               <span className="wc-icon minimize-button"></span>
               <span
+                onClick={this.maximize}
                 className={
                   this.getWindowFixedSizeProp() + " wc-icon maximize-button"
                 }

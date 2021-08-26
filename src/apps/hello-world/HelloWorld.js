@@ -13,7 +13,7 @@ class HelloWorld extends Window {
 
   componentDidMount() {
     this.useDarkTheme(false)
-    this.setWindowFixedSize(true)
+    this.setWindowFixedSize(false)
   }
 
   onClick = () => {

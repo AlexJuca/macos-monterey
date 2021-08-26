@@ -9,7 +9,7 @@ class TrexGame extends Window {
 
   componentDidMount() {
     this.useDarkTheme(false)
-    this.setWindowFixedSize(true)
+    this.setWindowFixedSize(false)
   }
 
   onClick = () => {
@@ -27,7 +27,7 @@ class TrexGame extends Window {
     return this.build(
       <div>
         <div id="messageBox" className="sendmessage">
-          <h1>Press Space to start</h1>
+          <h4>Press Space to start</h4>
           <div className="niokbutton" onClick={this.onClick}></div>
         </div>
         <div id="main-frame-error" className="interstitial-wrapper">
