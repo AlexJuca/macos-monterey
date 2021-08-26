@@ -5,4 +5,11 @@ export default class TimeHelper {
       minute: "numeric",
     })
   }
+
+  static formatTime(dateStr) {
+    return new Date(dateStr.replace(/-/g, "/")).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "numeric",
+    })
+  }
 }
