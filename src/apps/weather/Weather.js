@@ -3,6 +3,8 @@ import Window from "../../components/window/Window"
 import "./weather.scss"
 import TimeHelper from "./helpers/time"
 
+const API_KEY = process.env.WEATHER_API_KEY
+
 const SpinningLoader = () => {
   return (
     <div>
@@ -27,7 +29,7 @@ class WeatherApp extends Window {
 
   fetchWeatherInfo = () => {
     fetch(
-      `https://api.weatherapi.com/v1/current.json?key=dcde45d43ce3464db4e134104212508&q=${this.state.city}&aqi=yes`
+      `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${this.state.city}&aqi=yes`
     )
       .then((response) => response.json())
       .then((weather) =>
