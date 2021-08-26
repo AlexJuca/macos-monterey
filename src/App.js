@@ -2,11 +2,11 @@ import React, { Component } from "react"
 import "./App.scss"
 import Dock from "./components/dock/Dock"
 import StatusBar from "./components/statusbar/StatusBar"
-import ProcessManager from "./apps/manager/ProcessManager"
 import TrexGame from "./apps/t-rex/TrexGame"
 import Process from "./lib/darwin/Process"
-import HelloWorld from "./apps/hello-world/HelloWorld"
+import WeatherApp from "./apps/weather/Weather"
 import "./fonts/fonts.js"
+import "remixicon/fonts/remixicon.css"
 
 class App extends Component {
   main = new Process()
@@ -50,8 +50,9 @@ class App extends Component {
       <div>
         <StatusBar />
         <TrexGame />
-        <ProcessManager processes={this.state.processes} />
-        <HelloWorld />
+        {/* <ProcessManager processes={this.state.processes} />
+        <HelloWorld /> */}
+        <WeatherApp />
         <Dock />
       </div>
     )
