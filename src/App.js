@@ -7,6 +7,8 @@ import Process from "./lib/darwin/Process"
 import WeatherApp from "./apps/weather/Weather"
 import "./fonts/fonts.js"
 import "remixicon/fonts/remixicon.css"
+import ProcessManager from "./apps/manager/ProcessManager"
+import HelloWorld from "./apps/hello-world/HelloWorld"
 
 class App extends Component {
   main = new Process()
@@ -50,8 +52,8 @@ class App extends Component {
       <div>
         <StatusBar />
         <TrexGame />
-        {/* <ProcessManager processes={this.state.processes} />
-        <HelloWorld /> */}
+        <ProcessManager processes={this.state.processes} />
+        <HelloWorld />
         <WeatherApp />
         <Dock />
       </div>
