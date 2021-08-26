@@ -19,22 +19,67 @@
 }
 
 .status-bar-menu {
-  left: 0%;
-  display: flex;
+  float: left;
+  padding-left: 8px;
+  width: 70%;
+  display: inline-flex;
   list-style: none;
   padding-top: 2px;
 }
 
-.staus-bar-menu-option {
+.status-bar-menu-option {
   color: #ffffff;
-  margin-right: 2%;
+  display: inline;
+  margin-right: 2px;
   font-size: 14px;
   font-smooth: always;
+  font-weight: 500;
+  cursor: default;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  transition: background 0.1s ease-in-out;
+  outline: none;
+}
+
+.status-bar-menu-option:focus {
+  background: rgb(255 255 255 / 30%);
 }
 
 .status-bar-apple-icon {
   filter: invert(1);
   -webkit-filter: invert(1);
   margin-top: 2px;
-  width: 17px;
+  width: 15px;
+  transition: background 0.1s ease-in-out;
+}
+
+.status-bar-apple-icon:focus {
+  background: rgb(255 255 255 / 30%);
+}
+
+.status-bar-menu-right {
+  float: right;
+  margin-right: 16px;
+  outline: none;
+}
+
+.status-bar-menu-right-option {
+  color: #ffffff;
+  display: inline;
+  margin-right: 2px;
+  font-size: 14px;
+  font-smooth: always;
+  font-weight: 500;
+  cursor: default;
+  padding: 7px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  transition: background 0.1s ease-in-out;
+  outline: none;
+}
+
+.status-bar-menu-right-option:focus {
+  background: rgb(255 255 255 / 30%);
 }

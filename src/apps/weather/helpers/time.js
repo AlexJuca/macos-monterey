@@ -13,4 +13,8 @@ export default class TimeHelper {
       minute: "numeric",
     })
   }
+
+  static getCurrentUTCDate() {
+    return new Date(Date.now()).toDateString()
+  }
 }
