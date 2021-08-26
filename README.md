@@ -14,11 +14,10 @@ this tutorial by [Tania Rascia](https://www.taniarascia.com/getting-started-with
 
 # Current UI
 
-This is how our current UI is, we aim to bring it as close as possible to macOS as possible. 
+This is how our current UI is, we aim to bring it as close as possible to macOS as possible.
 [Help Us!](https://github.com/AlexJuca/macos-monterey/issues/new)
 
 ![Screenshot](https://github.com/AlexJuca/macos-monterey/raw/main/.github/imgs/macos-monterey.png)
-
 
 To view what we have so far check out this [link](http://macos-monteray.herokuapp.com)
 
