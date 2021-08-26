@@ -3,7 +3,7 @@ import Window from "../../components/window/Window"
 import "./weather.scss"
 import TimeHelper from "./helpers/time"
 
-const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
+const WEATHER_API_KEY = "dcde45d43ce3464db4e134104212508"
 
 const SpinningLoader = () => {
   return (
