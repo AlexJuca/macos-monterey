@@ -6,6 +6,7 @@ export default class TimeHelper {
     })
   }
 
+  // Formats a date in the YYYY-MM-DD HH:MM format to HH:MM format
   static formatTime(dateStr) {
     return new Date(dateStr.replace(/-/g, "/")).toLocaleTimeString([], {
       hour: "numeric",
