@@ -3,7 +3,7 @@ import Window from "../../components/window/Window"
 import "./weather.scss"
 import TimeHelper from "./helpers/time"
 
-const API_KEY = process.env.WEATHER_API_KEY
+const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
 const SpinningLoader = () => {
   return (
@@ -29,7 +29,7 @@ class WeatherApp extends Window {
 
   fetchWeatherInfo = () => {
     fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${this.state.city}&aqi=yes`
+      `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${this.state.city}&aqi=yes`
     )
       .then((response) => response.json())
       .then((weather) =>
@@ -95,9 +95,13 @@ class WeatherApp extends Window {
           </div>
           <div>
             <h1 className="time">
-              {TimeHelper.getCurrentTime()} <span className="time-period"></span>
+              {TimeHelper.formatTime(this.state.weather.location.localtime)}{" "}
+              <span className="time-period"></span>
             </h1>
-            <p className="city">{this.state.weather.location.name}</p>
+            <p className="city">
+              {this.state.weather.location.name},{" "}
+              {this.state.weather.location.country}
+            </p>
           </div>
           <div>
             <form onSubmit={this.handleSubmit}>
