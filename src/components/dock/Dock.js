@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./dock.scss"
-import DockIcon from "../dock-icon/DockIcon"
+import DockIcon from "../dock_icon/DockIcon"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { isChrome, isFirefox, isSafari } from "react-device-detect"
