@@ -1,0 +1,58 @@
+.darwin-widget-light-theme {
+  background: #f2f3f5;
+  border-radius: 32px;
+  border-style: solid;
+  border-color: #e9eae3;
+  border-width: 1px;
+  position: absolute;
+  width: 256px;
+  height: 256px;
+  top: 200px;
+  left: 28%;
+  right: 50%;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+  transition: width 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
+}
+
+.stock-widget-content {
+  float: left;
+  position: relative;
+  width: 100%;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.stock-symbol {
+  color: #323232;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.stock-name {
+  color: #a9a9a9;
+  width: 100%;
+}
+
+.stock-price {
+  font-weight: bold;
+  color: #323232;
+  width: 100%;
+  margin-top: 50px !important;
+  margin-bottom: 0px !important;
+}
+
+.positive {
+  color: #39bd91;
+  width: 100%;
+}
+
+.negative {
+  color: red;
+  width: 100%;
+}

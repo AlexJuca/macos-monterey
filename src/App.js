@@ -9,6 +9,7 @@ import "./fonts/fonts.js"
 import "remixicon/fonts/remixicon.css"
 import ProcessManager from "./apps/manager/ProcessManager"
 import HelloWorld from "./apps/hello-world/HelloWorld"
+import Widget from "./widgets/stock/Stock"
 
 class App extends Component {
   main = new Process()
@@ -55,6 +56,7 @@ class App extends Component {
         <ProcessManager processes={this.state.processes} />
         <HelloWorld />
         <WeatherApp />
+        <Widget />
         <Dock />
       </div>
     )
