@@ -1,9 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
+import BaseWidget from "../../components/widget/Widget"
 import SpinningLoader from "../../components/spinning_loader/SpinningLoader"
-import PropTypes from "prop-types"
 import "./stock.scss"
 
-class Widget extends Component {
+class StockWidget extends BaseWidget {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,7 +13,8 @@ class Widget extends Component {
       symbol: "AAPL",
       stock_direction: "positive",
       stock_relative_change: 0,
-      stock_info_has_been_loaded: true,
+      stock_info_has_been_loaded: false,
+      failed_to_fetch_stock_info: null,
       stock: {
         open: 147.48,
         high: 148.75,
@@ -30,12 +31,13 @@ class Widget extends Component {
   }
 
   fetchStockInformation() {
-    fetch(`https://api.lil.software/stocks?symbol={this.state.symbol}`)
+    fetch("https://api.lil.software/stocks?symbol=AAPL")
       .then((response) => response.json())
       .then((stock) =>
         this.setState({ stock: stock, stock_info_has_been_loaded: true })
       )
       .catch((error) => {
+        this.setState({ failed_to_fetch_stock_info: true })
         console.log(error)
       })
   }
@@ -61,15 +63,8 @@ class Widget extends Component {
   }
 
   render() {
-    return this.state.stock_info_has_been_loaded ? (
-      <div
-        style={{
-          width: this.state.width,
-          height: this.state.height,
-          transform: "translate(900px, -100px)",
-        }}
-        className="darwin-widget-light-theme"
-      >
+    return this.build(
+      this.state.stock_info_has_been_loaded ? (
         <div className="stock-widget-content">
           <h5 className="stock-symbol">{this.state.symbol}</h5>
           <p className="stock-name">{this.state.stock.name}</p>
@@ -78,25 +73,18 @@ class Widget extends Component {
             {this.state.stock_relative_change}%
           </p>
         </div>
-      </div>
-    ) : (
-      <div
-        style={{
-          padding: "4%",
-          width: this.state.width,
-          height: this.state.height,
-          transform: "translate(900px, -100px)",
-        }}
-        className="darwin-widget-light-theme"
-      >
-        <SpinningLoader progress_color={"#000000"}></SpinningLoader>
-      </div>
+      ) : this.state.failed_to_fetch_stock_info == true ? (
+        <div className="loading-widget-content">
+          <i className="remixicon-error-warning-line"></i>
+          <p>Error fetching stock data</p>
+        </div>
+      ) : (
+        <div className="loading-widget-content">
+          <SpinningLoader></SpinningLoader>
+        </div>
+      )
     )
   }
 }
 
-Widget.propTypes = {
-  children: PropTypes.func,
-}
-
-export default Widget
+export default StockWidget

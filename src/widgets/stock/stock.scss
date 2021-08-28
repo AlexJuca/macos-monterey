@@ -1,23 +1,5 @@
-.darwin-widget-light-theme {
-  background: #f2f3f5;
-  border-radius: 32px;
-  border-style: solid;
-  border-color: #e9eae3;
-  border-width: 1px;
-  position: absolute;
-  width: 256px;
-  height: 256px;
-  top: 200px;
-  left: 28%;
-  right: 50%;
-  color: #000000;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  transition: box-shadow 0.3s ease-in-out;
-  overflow: hidden;
-  transition: width 0.2s ease-in-out;
-  transition: height 0.2s ease-in-out;
+.loading-widget-content {
+  padding-top: 60px;
 }
 
 .stock-widget-content {
