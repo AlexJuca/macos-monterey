@@ -1,20 +1,10 @@
 import React from "react"
 import Window from "../../components/window/Window"
+import SpinningLoader from "../../components/spinning_loader/SpinningLoader"
 import "./weather.scss"
 import TimeHelper from "./helpers/time"
 
 const WEATHER_API_KEY = "dcde45d43ce3464db4e134104212508"
-
-const SpinningLoader = () => {
-  return (
-    <div>
-      <div id="loading-spinner">
-        <div className="spin-icon"></div>
-      </div>
-      <p style={{ marginTop: "10px" }}>Loading...</p>
-    </div>
-  )
-}
 
 class WeatherApp extends Window {
   constructor(props) {
@@ -44,7 +34,7 @@ class WeatherApp extends Window {
     this.fetchWeatherInfo()
     this.useDarkTheme(false)
     this.setWindowFixedSize(true)
-    this.setCustomStyle("welcome-app-theme")
+    this.setCustomStyle("weather-app-theme")
   }
 
   handleChange = (event) => {
