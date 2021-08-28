@@ -89,7 +89,7 @@ class Widget extends Component {
         }}
         className="darwin-widget-light-theme"
       >
-        <SpinningLoader progress_color={"#000"}></SpinningLoader>
+        <SpinningLoader progress_color={"#000000"}></SpinningLoader>
       </div>
     )
   }
