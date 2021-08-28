@@ -13,7 +13,7 @@ class StockWidget extends BaseWidget {
       symbol: "AAPL",
       stock_direction: "positive",
       stock_relative_change: 0,
-      stock_info_has_been_loaded: false,
+      stock_info_has_been_loaded: true,
       failed_to_fetch_stock_info: null,
       stock: {
         open: 147.48,
