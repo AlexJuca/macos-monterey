@@ -10,9 +10,7 @@ It was built using HTML, CSS, Javascript and React.
 Simple really. I am a backend engineer but I recently had to learn React. So, after following
 this tutorial by [Tania Rascia](https://www.taniarascia.com/getting-started-with-react/) and reading the official React documentation I challenged myself to build a clone of macOS Monterey that runs in the browser.
 
-![Screenshot](https://github.com/AlexJuca/macos-monterey/raw/main/.github/imgs/screen.gif)
-
-# Current UI
+# Current State of Affairs
 
 This is how our current UI is, we aim to bring it as close as possible to macOS as possible.
 [Help Us!](https://github.com/AlexJuca/macos-monterey/issues/new)
