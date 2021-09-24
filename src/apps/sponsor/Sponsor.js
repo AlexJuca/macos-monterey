@@ -24,7 +24,7 @@ class SponsorApp extends Window {
           <img className="sponsor-profile" src="img/alex.jpeg" />
         </div>
         <div className="sponsor-content">
-          <h1>Hi, want to sponsor this project?</h1>
+          <h1>Hi, I am Alexandre. Want to sponsor this project?</h1>
           <p>
             A lot of people found this project interesting and many have asked how
             they can help to keep it up and running.
@@ -54,7 +54,7 @@ class SponsorApp extends Window {
           <a
             className="view-project-link"
             target="blank"
-            href="https://github.com/sponsors/AlexJuca"
+            href="https://github.com/AlexJuca/macos-monterey"
           >
             View project on Github
           </a>
