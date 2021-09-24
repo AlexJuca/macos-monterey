@@ -18,6 +18,7 @@
     "allowImportExportEverywhere": true
   },
   "rules": {
-    "no-eval": "error"
+    "no-eval": "error",
+    "no-unused-vars": "off"
   }
 }

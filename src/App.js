@@ -1,21 +1,17 @@
+/* eslint-disable-no-unused-vars */
+
 import React, { Component } from "react"
 import "./App.scss"
 import Dock from "./components/dock/Dock"
 import StatusBar from "./components/statusbar/StatusBar"
 import TrexGame from "./apps/t-rex/TrexGame"
-import Process from "./lib/darwin/Process"
 import WeatherApp from "./apps/weather/Weather"
 import "./fonts/fonts.js"
 import "remixicon/fonts/remixicon.css"
-import ProcessManager from "./apps/manager/ProcessManager"
 import HelloWorld from "./apps/hello-world/HelloWorld"
 import SponsorApp from "./apps/sponsor/Sponsor"
 
 class App extends Component {
-  main = new Process()
-  dock = new Process()
-  view = null
-
   constructor(props) {
     super(props)
     this.state = {
@@ -62,7 +58,6 @@ class App extends Component {
         <StatusBar />
         <TrexGame />
         <SponsorApp />
-        <ProcessManager processes={processes} />
         <HelloWorld />
         <WeatherApp />
         <Dock />
@@ -71,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>{this.onLoad(this.state.processes)}</div>
+    return <div> {this.onLoad(this.state.processes)}</div>
   }
 }
 

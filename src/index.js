@@ -5,13 +5,31 @@ import "./index.scss"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import configureStore from "./store/configureStore"
+import { isMobile } from "react-device-detect"
 
 const store = configureStore()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {isMobile == true ? (
+        <div className="run-on-desktop">
+          <h1>macOS</h1>
+          <h3>Monterey</h3>
+          To view the preview of macOS Monterey built with JS please open this
+          website via a desktop browser
+          <br></br>
+          <br></br>
+          <a href="https://github.com/alexjuca">
+            <img className="sponsor-profile" src="img/alex.jpeg" alt="author" />
+          </a>
+          <br></br>
+          Created by <a href="https://github.com/alexjuca">Alexandre Juca</a>
+          <br></br>
+        </div>
+      ) : (
+        <App />
+      )}
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
