@@ -1,0 +1,85 @@
+.sponsor-app-theme {
+  background: #077aff;
+  width: 900px;
+  height: 580px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0 / 100);
+  position: absolute;
+  top: 200px;
+  left: 28%;
+  right: 50%;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.sponsor-profile-content {
+  position: relative;
+  width: 72px;
+}
+
+.sponsor-content {
+  position: relative;
+  top: -94px;
+  right: 1%;
+  float: right;
+  margin-left: 10%;
+}
+
+.sponsor-button {
+  background: #ffffff;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  height: 32px;
+  min-width: 72px;
+  font-weight: bold;
+  color: #000 !important;
+  padding: 8px;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-decoration: none !important;
+  transition: all 0.3 ease-in-out;
+  -webkit-transition: all 0.3 ease-in-out;
+  -moz-transition: all 0.3 ease-in-out;
+  z-index: 2;
+}
+
+.sponsor-button:hover {
+  box-shadow: 0 3px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.hidden-emoji {
+  margin-left: -10px;
+  z-index: 0;
+}
+
+.sponsor-profile {
+  width: 62px;
+  height: 62px;
+  border-radius: 512px;
+}
+
+.sponsor-links {
+  float: right;
+  margin-right: 16px;
+}
+
+.view-project-link {
+  text-decoration: underline;
+}
+
+.sponsor-app-theme {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  a {
+    color: #ffffff;
+  }
+}
