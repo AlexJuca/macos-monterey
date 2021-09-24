@@ -9,7 +9,7 @@ import "./fonts/fonts.js"
 import "remixicon/fonts/remixicon.css"
 import ProcessManager from "./apps/manager/ProcessManager"
 import HelloWorld from "./apps/hello-world/HelloWorld"
-import Widget from "./widgets/stock/Stock"
+import SponsorApp from "./apps/sponsor/Sponsor"
 
 class App extends Component {
   main = new Process()
@@ -48,18 +48,30 @@ class App extends Component {
     }
   }
 
-  render() {
+  componentDidMount() {
+    window.addEventListener("load", this.onLoad)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("load", this.onLoad)
+  }
+
+  onLoad(processes) {
     return (
       <div>
         <StatusBar />
         <TrexGame />
-        <ProcessManager processes={this.state.processes} />
+        <SponsorApp />
+        <ProcessManager processes={processes} />
         <HelloWorld />
         <WeatherApp />
-        <Widget />
         <Dock />
       </div>
     )
+  }
+
+  render() {
+    return <div>{this.onLoad(this.state.processes)}</div>
   }
 }
 
