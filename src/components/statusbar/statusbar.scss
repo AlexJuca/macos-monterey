@@ -83,3 +83,50 @@
 .status-bar-menu-right-option:focus {
   background: rgb(255 255 255 / 30%);
 }
+
+.status-bar-menu-option ul li {
+  cursor: pointer;
+  width: 256px;
+  list-style: none;
+  padding: 3px;
+  text-align: left;
+  margin-left: -32px;
+  border-radius: 4px;
+  padding-right: 16px;
+  margin-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  color: #000;
+}
+
+.status-bar-menu-option ul li:hover {
+  background: #3789F6;
+  color: #fff;
+}
+
+.status-bar-menu-option ul {
+  visibility: hidden;
+  opacity: 1;
+  position: fixed;
+  top: 29px;
+  border-radius: 8px;
+  left: 10px;
+  display: block;
+  background: rgba(208 208 206 / 40%);
+  backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 80px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 80px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 80px;
+}
+
+.status-bar-menu-option:focus {
+  ul {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+}
+
+
