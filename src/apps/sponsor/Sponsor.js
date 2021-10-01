@@ -44,7 +44,7 @@ class SponsorApp extends Window {
           <a
             className="sponsor-button"
             target="blank"
-            href="https://github.com/AlexJuca/macos-monterey"
+            href="https://github.com/sponsors/AlexJuca"
           >
             Sponsor $5
           </a>
