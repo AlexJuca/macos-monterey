@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Tooltip from "@atlaskit/tooltip"
 import Indicator from "../indicator/Indicator"
 import "./dock-icon.scss"
 
@@ -46,21 +45,19 @@ class DockIcon extends Component {
   render() {
     const { icon, name } = this.props
     return (
-      <Tooltip content={name}>
-        <li>
-          <span className="icon">
-            <img
-              className={this.state.onMouseDownEffect}
-              onMouseLeave={this.onMouseLeave}
-              onClick={this.onClick}
-              onMouseDown={this.onMouseDown}
-              onMouseUp={this.onMouseUp}
-              src={icon}
-            ></img>
-            <Indicator indicator={this.state.indicator}></Indicator>
-          </span>
-        </li>
-      </Tooltip>
+      <li>
+        <span className="icon">
+          <img
+            className={this.state.onMouseDownEffect}
+            onMouseLeave={this.onMouseLeave}
+            onClick={this.onClick}
+            onMouseDown={this.onMouseDown}
+            onMouseUp={this.onMouseUp}
+            src={icon}
+          ></img>
+          <Indicator indicator={this.state.indicator}></Indicator>
+        </span>
+      </li>
     )
   }
 }
