@@ -10,6 +10,7 @@ import "./fonts/fonts.js"
 import "remixicon/fonts/remixicon.css"
 import HelloWorld from "./apps/hello-world/HelloWorld"
 import SponsorApp from "./apps/sponsor/Sponsor"
+import Vscode from "./apps/vscode/Vscode"
 
 class App extends Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class App extends Component {
         <HelloWorld />
         <WeatherApp />
         <Dock />
+        <Vscode />
       </div>
     )
   }
