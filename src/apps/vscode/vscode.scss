@@ -1,0 +1,23 @@
+.vscode-theme {
+    background: none;
+    position: absolute;
+    width: 1030px;
+    height: 1080px;
+    top: 200px;
+    left: 28%;
+    right: 50%;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.vscode-theme > .window-control-wrapper {
+    width: 100%;
+    height: 42px;
+    top: 6px;
+    margin-top: 12px;
+    padding-left: 12px;
+    position: absolute;
+}
